@@ -4,10 +4,19 @@
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
-					<Text text="{i18n>txtHello}"></Text>
+					<!--<Text text="{i18n>txtHello}"></Text>-->
 					<!--<Text text="Hello World"></Text>-->
-					<Image src="https://yt3.ggpht.com/ytc/AKedOLR0Q2jl80Ke4FS0WrTjciAu_w6WETLlI0HmzPa4jg=s900-c-k-c0x00ffffff-no-rj" width="100px"
-						height="100px" decorative="false" press="handleImage3Press"/>
+					<!--<Image src="https://yt3.ggpht.com/ytc/AKedOLR0Q2jl80Ke4FS0WrTjciAu_w6WETLlI0HmzPa4jg=s900-c-k-c0x00ffffff-no-rj" width="100px"
+						height="100px" decorative="false" press="handleImage3Press"/>-->
+					<!--<Button text="Say Hello" press="onShowHello"></Button>-->
+					<List id="invoiceList" headerText="{i18n>invoiceListHeader}" class="sapUiResponsiveMargin" width="auto" items="{invoice>/Invoices}">
+						<items>
+							<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName} || {invoice>ShipperName}"
+								number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'invoice>/Currency'}], type: 'sap.ui.model.type.currency', formatOptions: { showMeasure: false }}"
+								numberUnit="{invoice>Currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"></ObjectListItem>
+							<!--number="{invoice>ExtendedPrice}"-->
+						</items>
+					</List>
 				</content>
 			</Page>
 		</pages>
