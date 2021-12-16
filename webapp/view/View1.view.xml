@@ -13,8 +13,10 @@
 						<Text id="idText" text="Hello"></Text>
 						<Input id="idInput" liveChange="onChangeInput"></Input>
 						<DatePicker id="idDate"></DatePicker>
-						<Button text="Submit" press="onPressTrainingButton"></Button>
-						<List id="invoiceList" headerText="{i18n>invoiceListHeader}" class="sapUiResponsiveMargin" width="auto" items="{path: 'invoice>/Invoices', sorter: {path: 'ShipperName', group: true}}">
+						<Button text="Submit" press="onPressTrainingButton" type="Reject"></Button>
+						<List id="invoiceList" headerText="{i18n>invoiceListHeader}" class="sapUiResponsiveMargin" width="auto"
+							items="{path: 'invoice>/Invoices', sorter: {path: 'ShipCountry', descending: false, group: true}}" growing="true" growingThreshold="4"
+							growingScrollToLoad="false">
 							<headerToolbar>
 								<Toolbar>
 									<Title text="{i18n>invoiceListHeader}"/>

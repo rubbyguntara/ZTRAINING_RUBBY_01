@@ -62,6 +62,11 @@ sap.ui.define([
 			// var oList = this.getView().byId("invoiceList");
 			// var oBinding = oList.getBinding("items");
 			// oBinding.filter(aFilter);
-		}
+		},
+		groupFunction: function(oContext){
+			return {
+				key: oContext.getProperty("ProductName")[0]
+			};
+		},
 	});
 });
