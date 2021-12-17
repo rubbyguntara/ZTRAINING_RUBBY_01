@@ -15,7 +15,7 @@
 						<DatePicker id="idDate"></DatePicker>
 						<Button text="Submit" press="onPressTrainingButton" type="Reject"></Button>
 						<List id="invoiceList" headerText="{i18n>invoiceListHeader}" class="sapUiResponsiveMargin" width="auto"
-							items="{path: 'invoice>/Invoices', sorter: {path: 'ShipCountry', descending: false, group: true}}" growing="true" growingThreshold="4"
+							items="{path: 'invoice>/Invoices', sorter: {path: 'ShipCountry', descending: false, group: true}}" growing="true" growingThreshold="50"
 							growingScrollToLoad="false">
 							<headerToolbar>
 								<Toolbar>
@@ -25,11 +25,12 @@
 								</Toolbar>
 							</headerToolbar>
 							<items>
-								<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName} , Shipper by {invoice>ShipperName}"
+								<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName} , ( Order ID :  {invoice>OrderID} , Shipper by {invoice>ShipperName} )"
 									number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'invoice>/Currency'}], type: 'sap.ui.model.type.currency', formatOptions: { showMeasure: false }}"
 									numberUnit="{invoice>Currency}" numberState="{path: 'invoice>ExtendedPrice', formatter: '.formatter.numberState'}">
 									<firstStatus>
-										<ObjectStatus text="{path: 'invoice>Status', formatter: '.formatter.statusText'}"/>
+										<!--<ObjectStatus text="{path: 'invoice>Status', formatter: '.formatter.statusText'}"/>-->
+										<ObjectStatus text="{path: 'invoice>ExtendedPrice', formatter: '.formatter.currencyPrice'}"/>
 									</firstStatus>
 								</ObjectListItem>
 								<!--number="{invoice>ExtendedPrice}"-->

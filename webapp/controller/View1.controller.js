@@ -67,6 +67,6 @@ sap.ui.define([
 			return {
 				key: oContext.getProperty("ProductName")[0]
 			};
-		},
+		}
 	});
 });

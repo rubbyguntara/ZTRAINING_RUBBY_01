@@ -14,13 +14,23 @@ sap.ui.define([], function() {
 					return sStatus;
 			}
 		},
+		currencyPrice: function(sExtendedPrice) {
+			var resourceBundle = this.getView().getModel("i18n").getResourceBundle();
+			if (sExtendedPrice >= 200) {
+				return 'IDR';
+			} else if (sExtendedPrice >= 90) {
+				return 'BND';
+			} else {
+				return 'USD';
+			}
+		},
 		numberState: function(sExtendedPrice) {
-			if (sExtendedPrice >= 11) {
-				return "Error";
-			} else if (sExtendedPrice === 8.8) {
+			if (sExtendedPrice >= 100) {
+				return "Success";
+			} else if (sExtendedPrice >= 50) {
 				return "Warning";
 			} else {
-				return "Success";
+				return "Error";
 			}
 		}
 	};
